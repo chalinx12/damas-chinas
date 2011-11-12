@@ -1,0 +1,33 @@
+# Project: damaschinas
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = damaschinas.o juego.o $(RES)
+LINKOBJ  = damaschinas.o juego.o $(RES)
+LIBS =  -L"G:/Dev-Cpp/lib" -mwindows -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32 
+INCS =  -I"G:/Dev-Cpp/include" 
+CXXINCS =  -I"G:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"G:/Dev-Cpp/include/c++/3.4.2/backward"  -I"G:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"G:/Dev-Cpp/include/c++/3.4.2"  -I"G:/Dev-Cpp/include" 
+BIN  = damaschinas.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before damaschinas.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "damaschinas.exe" $(LIBS)
+
+damaschinas.o: damaschinas.c
+	$(CC) -c damaschinas.c -o damaschinas.o $(CFLAGS)
+
+juego.o: juego.c
+	$(CC) -c juego.c -o juego.o $(CFLAGS)
